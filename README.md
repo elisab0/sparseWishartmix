@@ -19,7 +19,8 @@ The function utilizes an iterative algorithm to update parameters until converge
 ### External Dependencies
 
 - `equation_nu.cpp`: C++ code containing an equation related to degrees of freedom.
-- `compute_left.cpp`: C++ code providing a computation related to the optimization process.
+- `compute_left.cpp`: C++ code providing a computation related to degrees of freedom, to give in input to equation_nu.cpp.
+  The choice of writing it in C++ is due to computational speed. 
 
 ## Outputs
 
