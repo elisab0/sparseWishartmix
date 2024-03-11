@@ -34,3 +34,33 @@ The function returns a list containing the following results:
 - `penalty`: The penalty term accounting for the complexity of the model.
 - `shrinkage`: The specified shrinkage parameter used in the optimization process.
 
+# Simulation Study README
+
+This repository contains R code for a simulation study that evaluates the performance of the `compute_partition` function in estimating a partitioned covariance matrix.
+
+## Objective
+
+The primary goal of this simulation study is to assess the accuracy of the partitioning algorithm under various scenarios. The algorithm aims to partition a set of covariance matrices corresponding to different groups, considering partial observability of group memberships.
+
+## Usage
+
+To run the simulation, execute the provided R scripts:
+
+1. **gen_sparse_posdef_mat_erdos_renyi.R**: Generates sparse positive definite matrices using an Erdos-Renyi model.
+2. **compute_partition.R**: Implements the main function `compute_partition` and executes the simulation study.
+
+Ensure that the required libraries (`Matrix`, `covglasso`, `stats`, `LaplacesDemon`, `igraph`, `mixggm`, `matrixStats`, `caret`, `mclust`, `ggplot2`, `e1071`, `Rcpp`) are installed before running the code.
+
+## Simulation Parameters
+
+Adjust the simulation parameters such as the number of simulations (`simulations`), dimensionality (`p`), the number of groups (`g`), and sample size (`N`) according to your experimental design.
+
+## Results
+
+The simulation produces results including F1 scores, Adjusted Rand Index (ARI), Mean Squared Error (MSE), and other metrics for each run. Results are saved in the `simulation_results_diff_sparse123_grid.rds` file.
+
+## Analysis and Visualization
+
+The R script includes code for visualizing F1 scores, MSE, ARI, and shrinkage values across simulations. The generated plots help analyze the algorithm's performance under different scenarios.
+
+
