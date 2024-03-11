@@ -87,7 +87,7 @@ for (g in g_values) {
   
   nu = rep(80,g)
   
-  partition <- compute_partition(C = W_list, g = g, p = p, Z_matrix = Z_matrix, nu = nu, shrinkage = 1)
+  partition <- compute_partition(C = W_list, g = g, p = p, Z_matrix = Z_matrix, nu = nu)
   
   results[[as.character(g)]] <- partition
 }
@@ -152,12 +152,6 @@ image(as.matrix(S_binary1), col = c("white", "black"), axes = FALSE, main = "Sig
 x11()
 image(as.matrix(S_binary2), col = c("white", "black"), axes = FALSE, main = "Sigma 2")
 
-sum(partition$Sigma[[1]] == 0)
+sum(partition$Sigma[[1]] == 0) 
 sum(partition$Sigma[[2]] == 0)
 
-W_list_binary <- list()
-
-for(i in 1:N){
-  mat <- matrix(0, p, p)
-  
-}

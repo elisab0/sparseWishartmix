@@ -44,7 +44,7 @@ compute_partition <- function(C, g, p, Z_matrix, nu, shrinkage = .001, max_iter 
       }
     }
     
-    # M-Step: Aggiorna n_k - risolvi numericamente, aggiorna Sigma_k, aggiorna p_k
+    
     for (k in 1:g) {
       
       Z_sum = sum(Z_matrix[ ,k])
@@ -106,7 +106,7 @@ compute_partition <- function(C, g, p, Z_matrix, nu, shrinkage = .001, max_iter 
       
     }
     
-    # likelihood 
+   
     dens <- matrix(NA, N, g)
     
     for (k in 1:g) {
@@ -139,8 +139,6 @@ compute_partition <- function(C, g, p, Z_matrix, nu, shrinkage = .001, max_iter 
     penalty <- sum(sapply(1:g, function(k) shrinkage * sum(abs(Sigma[[k]]))))
     
     obj_fun <- likelihood - penalty
-    
-    # cat(obj_fun,"\n")
     
     criterion <- (abs(obj_fun - obj_fun_old) > toll) & (t < max_iter)
     

@@ -3,8 +3,6 @@
 #include <boost/math/special_functions/digamma.hpp>
 
 // [[Rcpp::depends(RcppEigen)]]
-
-// Definizione della funzione in C++
 // [[Rcpp::export]]
 double equation_nu(double x, Eigen::VectorXd z, double left_sum, int p) {
   int N = z.size();
