@@ -106,6 +106,32 @@ The distribution of shrinkage values used in the partitioning algorithm is visua
 - Ensure that the required R packages are installed before running the code.
 - The data are available in the files: DTI-connectome.RData and fMRI-connectome.RData
 
+# Functional Connectivity Partitioning README
 
+This repository contains R code for the partitioning analysis of functional connectivity matrices obtained from fMRI data. The analysis includes clustering the connectivity matrices into distinct groups and exploring the structure of the resulting partitions.
 
+## Data Processing
 
+- Only the first scan is considered, as the second scan is available for only a few subjects.
+- Empty matrices are removed from the list of connectivity matrices (`W_list`).
+
+### Handling Non-Positive Definite Matrices
+
+- Matrices that are not positive definite are identified and replaced to ensure the validity of subsequent analyses.
+- Symmetry is enforced for matrices that are not initially symmetric.
+
+## Clustering Analysis
+
+- Fuzzy C-Means clustering (`cmeans`) is applied to the transposed connectivity matrices to identify cluster memberships.
+- The number of clusters (`g`) is varied from 2 to 10.
+
+## Shrinkage Analysis
+
+- Shrinkage values are explored in combination with the cluster memberships obtained from the Fuzzy C-Means clustering.
+- The optimal shrinkage value is determined based on Bayesian Information Criterion (BIC).
+- The resulting partition is examined, and binary matrices (`S_binary1` and `S_binary2`) are created, where 0 indicates no connectivity and 1 indicates connectivity.
+
+## Results and Visualizations
+
+- Results, including partitions and shrinkage analyses, are saved in RDS files (`results_fin_FCM`).
+- Visualizations include images of binary matrices representing connectivity patterns within clusters.
