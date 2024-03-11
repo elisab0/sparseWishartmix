@@ -1,4 +1,4 @@
-# compute_partition
+# compute_partition README
 The `compute_partition` function is designed to perform partitioning using a specified set of parameters. This function employs an E-M iterative optimization process to estimate parameters such as weights, covariance matrices, and degrees of freedom. The primary goal is to maximize the likelihood of the observed data while penalizing the complexity of the model.
 
 ## Function Parameters
@@ -62,5 +62,50 @@ The simulation produces results including F1 scores, Adjusted Rand Index (ARI), 
 ## Analysis and Visualization
 
 The R script includes code for visualizing F1 scores, MSE, ARI, and shrinkage values across simulations. The generated plots help analyze the algorithm's performance under different scenarios.
+
+# Functional Connectivity Analysis README
+
+This repository contains R code for the analysis of functional connectivity in brain networks based on fMRI data. The analysis includes the creation of heatmaps and binary matrices representing connectivity strength and range.
+
+## Heatmap Analysis - White Fibers
+
+### Average Connectivity Matrix
+
+The average connectivity matrix (`D_average`) is calculated across multiple scans, excluding empty matrices. The heatmap visualizes the strength of connections using a color scale. Additionally, a binary matrix (`D_binary`) is generated based on a threshold to distinguish between fibers and no fibers.
+
+### Binary Connectivity Matrix
+
+The binary connectivity matrix represents a simplified view of connections, classifying them as present or absent. The heatmap displays this binary matrix, aiding in the identification of connected regions.
+
+### Connectivity Statistics
+
+Statistics on the number of connections for each region are computed, including mean and quantiles. Regions with a low number of connections are identified.
+
+## Heatmap Analysis - fMRI Data
+
+### Average Functional Connectivity Matrix
+
+Similar to the white fibers analysis, the average functional connectivity matrix (`W_average`) is created from multiple scans, excluding empty matrices. The heatmap displays the strength of functional connections.
+
+### Range Matrix
+
+A range matrix (`W_range`) categorizes connectivity values into five ranges. The heatmap visualizes these ranges, providing insights into the variability of functional connectivity across regions.
+
+### Connectivity Statistics
+
+Statistics on the distribution of connections within each range are computed and displayed.
+
+## Shrinkage Values Distribution
+
+The distribution of shrinkage values used in the partitioning algorithm is visualized. The code uses a custom color palette to represent different connectivity strengths.
+
+## Additional Information
+
+- The analysis focuses on the first scan, as the second scan is available for a limited number of subjects.
+
+- Ensure that the required R packages are installed before running the code.
+- The data are available in the files: DTI-connectome.RData and fMRI-connectome.RData
+
+
 
 
